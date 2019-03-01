@@ -1,0 +1,6 @@
+<div class="form-group mb-0">
+    <select [(ngModel)]="activeValue" (change)="changeUnitsSystem($event)" class="form-control text-capitalize">
+        <option value="" disabled>Select value</option>
+        <option  *ngFor="let system of items" [value]="system">{{ system }}</option>
+    </select>
+</div>

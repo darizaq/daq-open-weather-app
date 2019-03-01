@@ -1,0 +1,32 @@
+<h2 *ngIf="forecastData">{{ forecastData.city?.name }} - {{ forecastData.city?.country }}</h2>
+
+<div *ngIf="forecastData">
+    <label class="mr-4">Limit of records</label>
+    <div class="form-group d-inline-flex">
+        <select [(ngModel)]="forecastLimit" class="form-control">
+            <option value="" disabled>Select value</option>
+            <option  *ngFor="let item of forecastLimitSelector" [value]="item">{{ item }}</option>
+        </select>
+    </div>
+</div>
+
+<div class="row justify-content-sm-center">
+    <app-city-forecast-chart
+        class="col-12 col-sm-10 col-xl-5 mb-4"
+        [data]="forecastData?.list"
+        [limit]="forecastLimit"
+        [units]="units">
+    </app-city-forecast-chart>
+
+    <app-city-forecast
+        class="col-12 col-sm-10 col-xl-7"
+        [data]="forecastData?.list"
+        [limit]="forecastLimit"
+        [units]="units">
+    </app-city-forecast>
+</div>
+
+<div class="spinner" *ngIf="!forecastData && !error">
+    <span>Loading . . .</span>
+</div>
+<app-error [error]="error"></app-error>

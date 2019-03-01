@@ -1,0 +1,16 @@
+@import 'variables';
+
+.not-found-container {
+	min-height: 200px;
+
+	i {
+		font-size: 5rem;
+		color: $gray-3-color;
+	}
+
+	p {
+		margin-left: 1rem;
+		font-size: 2rem;
+		
+	}
+}

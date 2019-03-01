@@ -1,0 +1,15 @@
+@import 'variables';
+
+.error-panel {
+	width: 100%;
+	height: 200px;
+
+	i {
+		font-size: 5rem;
+		color: $gray-3-color;
+	}
+
+	.error-title {
+		margin-bottom: 1rem;
+	}
+}

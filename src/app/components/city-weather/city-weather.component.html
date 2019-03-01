@@ -1,0 +1,17 @@
+<div class="card" tabindex="0" (click)="seeForecastData()" (keyup.enter)="seeForecastData()">
+    <div class="card-header">{{ cityData.name }} - {{ cityData.sys.country }}</div>
+    <div class="card-body row">
+        <div class="col">
+            <h5>Temperature</h5>
+            <span>{{ cityData.main.temp | temperature : units }}</span>
+        </div>
+        <div class="col">
+            <h5>Wind</h5>
+            <span>{{ cityData.wind.speed | speed : units }}</span>
+            <div class="d-inline-flex ml-3 wind-direction">
+                <i class="fas fa-arrow-up"
+                    [ngStyle]="{'transform': 'rotate(' + cityData.wind.deg + 'deg)'}"></i>
+            </div>
+        </div>
+    </div>
+</div>

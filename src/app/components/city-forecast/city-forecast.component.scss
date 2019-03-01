@@ -1,0 +1,12 @@
+@import 'variables';
+
+.record {
+    padding: 10px 0;
+    border-bottom: 1px solid $gray-1-color;
+
+    &.headings {
+        font-weight: bold;
+        background-color: $gray-2-color;
+        border: none;
+    }
+}
