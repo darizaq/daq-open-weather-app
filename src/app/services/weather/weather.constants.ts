@@ -1,5 +1,5 @@
 export class WeatherConstants {
-    static BASE_URL = 'http://api.openweathermap.org/data/2.5/';
+    static BASE_URL = 'https://api.openweathermap.org/data/2.5/';
     static API_KEY = '5ad2c5ed2af8acf587574c0a601940ae';
     static UNITS = 'metric';
     static INITIAL_CITES = [
