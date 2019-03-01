@@ -2,6 +2,8 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8
 
+[Demo app](https://darizaq.github.io/daq-open-weather-app/)
+
 ## Local environment
 
 If you want to run the app in your local machine you need to clone this repository and install all the dependencies with `npm install` (NodeJS version: v8.11.2)
