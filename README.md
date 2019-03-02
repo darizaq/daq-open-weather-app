@@ -2,7 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8
 
-[Demo app](https://darizaq.github.io/daq-open-weather-app/)
+[Demo app](https://darizaq.github.io/portfolio/daq-open-weather-app/)
 
 ## Local environment
 
