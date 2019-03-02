@@ -1,6 +1,6 @@
 # DaqOpenWeatherApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8 (updated to 7.3.1)
 
 [Demo app](https://darizaq.github.io/portfolio/daq-open-weather-app/)
 
