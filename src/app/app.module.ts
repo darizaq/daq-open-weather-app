@@ -14,7 +14,6 @@ import { CityForecastComponent } from './components/city-forecast/city-forecast.
 import { CityForecastChartComponent } from './components/city-forecast-chart/city-forecast-chart.component';
 import { TemperaturePipe } from './pipes/temperature/temperature.pipe';
 import { SpeedPipe } from './pipes/speed/speed.pipe';
-import { NotFoundComponent } from './features/not-found/not-found.component';
 import { ErrorComponent } from './components/error/error.component';
 import { SytemTogglerComponent } from './components/sytem-toggler/sytem-toggler.component';
 import { CitySelectorComponent } from './components/city-selector/city-selector.component';
@@ -29,7 +28,6 @@ import { CitySelectorComponent } from './components/city-selector/city-selector.
     CityForecastChartComponent,
     TemperaturePipe,
     SpeedPipe,
-    NotFoundComponent,
     ErrorComponent,
     SytemTogglerComponent,
     CitySelectorComponent
