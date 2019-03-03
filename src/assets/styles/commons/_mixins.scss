@@ -1,0 +1,11 @@
+@import 'variables';
+
+@mixin from-screen-width($bp) {
+	@if map-has-key($breakpoints, $bp) {
+		@media (min-width: #{map-get($breakpoints, $bp)}) {
+			@content;
+		}
+	} @else {
+		@content;
+	}
+}

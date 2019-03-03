@@ -1,0 +1,23 @@
+<div class="city-selector" [ngClass]="{'selector-open': selectorOpen}">
+    <div class="d-lg-none city-selector-button align-items-center pr-3"
+        (click)="toggleSelector()">
+        <app-city-weather
+            [cityData]="cityList[activeItem]"
+            [units]="units">
+        </app-city-weather>
+        <img class="selector-indicator" [src]="basePath + 'assets/images/caret-down.svg'" alt="">
+    </div>
+    <ul class="city-selector-list d-lg-block">
+        <li *ngFor="let city of cityList; let i = index"
+            [ngClass]="{'item-active': activeItem === i}">
+            <app-city-weather
+                [cityData]="city"
+                [units]="units"
+                [active]="activeItem === i"
+                tabindex="0"
+                (click)="activateItem(i)"
+                (keyup.enter)="activateItem(i)">
+            </app-city-weather>
+        </li>
+    </ul>
+</div>

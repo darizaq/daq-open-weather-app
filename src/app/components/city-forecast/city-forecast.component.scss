@@ -1,12 +1,12 @@
-@import 'variables';
+@import 'commons';
 
 .record {
     padding: 10px 0;
-    border-bottom: 1px solid $gray-1-color;
+    border-bottom: 1px solid $theme-light-gray;
 
     &.headings {
         font-weight: bold;
-        background-color: $gray-2-color;
+        background-color: $theme-medium-gray;
         border: none;
     }
 }

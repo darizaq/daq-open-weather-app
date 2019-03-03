@@ -1,4 +1,8 @@
-@import 'variables';
+@import 'commons';
+
+body {
+	font-family: 'Roboto Condensed', sans-serif;
+}
 
 input[type='number'] {
     -moz-appearance:textfield;
@@ -10,7 +14,7 @@ input::-webkit-inner-spin-button {
 }
 
 .wind-direction {
-    color: $gray-3-color;
+    width: 1rem;
 }
 
 .spinner,  {
@@ -19,4 +23,44 @@ input::-webkit-inner-spin-button {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+}
+
+.bg-color-dark-blue {
+	background-color: $theme-dark-blue;
+}
+
+.bg-color-light-blue {
+	background-color: $theme-light-blue;
+}
+
+.bg-color-light-orange {
+	background-color: $theme-light-orange;
+}
+
+.bg-color-dark-orange {
+	background-color: $theme-dark-orange;
+}
+
+.bg-color-light-gray {
+	background-color: $theme-light-gray;
+}
+
+.color-dark-blue {
+    color: $theme-dark-blue;
+}
+
+.color-light-blue {
+    color: $theme-light-blue;
+}
+
+.color-light-orange {
+    color: $theme-light-orange;
+}
+
+.color-dark-orange {
+    color: $theme-dark-orange;
+}
+
+.color-light-gray {
+    color: $theme-light-gray;
 }

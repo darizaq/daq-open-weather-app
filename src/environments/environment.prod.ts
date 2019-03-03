@@ -1,4 +1,5 @@
 export const environment = {
   production: true,
-  useHashRoutes: false
+  useHashRoutes: false,
+  baseHref: '/'
 };

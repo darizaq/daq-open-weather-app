@@ -23,12 +23,19 @@ export class CityForecastChartComponent implements OnInit, OnChanges {
             labels: [],
             datasets: [{
                 data: [],
-                borderColor: '#2d84f1',
+                borderColor: '#f9a26c',
                 fill: false
             }]
         },
         options: {
-            legend: {display: false},
+            legend: {
+                display: false
+            },
+            elements: {
+                point: {
+                    radius: 2
+                }
+            },
             scales: {
                 xAxes: [{
                     display: true
@@ -59,7 +66,7 @@ export class CityForecastChartComponent implements OnInit, OnChanges {
             this.updateChartData(this.data, changes.limit.currentValue);
         }
         if (changes.units && changes.units.currentValue) {
-            this.chartConfig.options.scales.yAxes[0].scaleLabel.labelString = this.tempPipe.transform(null, this.units);
+            this.chartConfig.options.scales.yAxes[0].scaleLabel.labelString = this.tempPipe.transform(null, this.units, false);
         }
     }
 

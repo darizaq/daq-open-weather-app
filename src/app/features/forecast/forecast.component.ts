@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 import { WeatherService } from '../../services/weather/weather.service';
 
@@ -17,40 +17,52 @@ export class ForecastComponent implements OnInit, OnDestroy {
     city;
     country;
     units;
-    unitsSubject;
     forecastLimitSelector;
+    unitsSubject: Subscription;
+    citySubject: Subscription;
 
-    constructor(private route: ActivatedRoute, private weatherService: WeatherService) { }
+    constructor(private weatherService: WeatherService) { }
 
     ngOnInit() {
-        this.city = this.route.snapshot.params['city'];
-        this.country = this.route.snapshot.params['country'];
+        this.citySubject = this.weatherService.currentCity
+            .subscribe((value: {city: string, country: string}) => {
+                this.city = value.city;
+                this.country = value.country;
+                this.getData();
+            });
 
         this.unitsSubject = this.weatherService.unitsSubject.subscribe(
-            value => {
+            (value: string) => {
                 this.units = value;
                 this.forecastData = null;
                 this.error = null;
-                this.weatherService.getForecastData(this.country, this.city)
-                .subscribe(
-                    data => {
-                        this.forecastData = data;
-                        this.initLimitSelector(data.list && data.list.length);
-                        this.error = null;
-                    },
-                    data => {
-                        this.error = {
-                            title: 'Error retrieving forecast data',
-                            message: data.error.message
-                        };
-                    }
-                );
+                if (this.city && this.country) {
+                    this.getData();
+                }
             }
         );
     }
 
     ngOnDestroy() {
         this.unitsSubject.unsubscribe();
+
+    }
+
+    getData() {
+        this.weatherService.getForecastData(this.country, this.city)
+            .subscribe(
+                data => {
+                    this.forecastData = data;
+                    this.initLimitSelector(data.list && data.list.length);
+                    this.error = null;
+                },
+                data => {
+                    this.error = {
+                        title: 'Error retrieving forecast data',
+                        message: data.error.message
+                    };
+                }
+            );
     }
 
     initLimitSelector(listLength: number) {
@@ -59,6 +71,10 @@ export class ForecastComponent implements OnInit, OnDestroy {
 
     toggleEditMode() {
         this.editMode = !this.editMode;
+    }
+
+    isLoading() {
+        return this.city && this.country && !this.forecastData && !this.error;
     }
 
 }

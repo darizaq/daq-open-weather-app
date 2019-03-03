@@ -1,11 +1,8 @@
-<div class="row" *ngIf="weatherListData">
-    <app-city-weather
-        class="col-12 col-md-6 col-lg-4"
-        *ngFor="let city of weatherListData.list"
-        [cityData]="city"
-        [units]="units">
-    </app-city-weather>
-</div>
+<app-city-selector
+    *ngIf="weatherListData"
+    [cityList]="weatherListData.list"
+    [units]="units">
+</app-city-selector>
 <div class="spinner" *ngIf="!weatherListData && !error">
     <span>Loading . . .</span>
 </div>

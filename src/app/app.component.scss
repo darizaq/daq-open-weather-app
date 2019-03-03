@@ -1,0 +1,48 @@
+@import 'commons';
+
+.navbar {
+	box-shadow: 0 2px 10px 0 rgba($black,.3);
+	z-index: 5;
+}
+
+.content {
+    position: relative;
+    padding-bottom: 5rem;
+    min-height: 100vh;
+    margin-top: -$navbar-height;
+    padding-top: $navbar-height;
+
+    footer {
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+        height: 5rem;
+        color: $white;
+
+        a {
+            &:hover {
+                color: $link-color;
+                text-decoration: none;
+            }
+        }
+
+        .social-links {
+            a + a {
+                margin-left: 1rem;
+            }
+
+            img {
+                width: 1.5rem;
+            }
+        }
+    }
+}
+
+@include from-screen-width(desktop) {
+    .weather-list {
+		background-color: $theme-light-blue;
+		min-height: $main-content-height;
+
+	}
+}

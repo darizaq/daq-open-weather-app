@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
+import { EnvironmentService } from '../../services/environment/environment.service';
+
 @Component({
   selector: 'app-city-forecast',
   templateUrl: './city-forecast.component.html',
@@ -10,8 +12,11 @@ export class CityForecastComponent implements OnInit {
     @Input() data;
     @Input() limit;
     @Input() units;
+    basePath;
 
-    constructor() { }
+    constructor(private environmentService: EnvironmentService) {
+        this.basePath = this.environmentService.getValue('baseHref');
+    }
 
     ngOnInit() { }
 

@@ -1,0 +1,36 @@
+/*
+ *	Color schema
+ */
+
+$black: #000000;
+$white: #ffffff;
+
+$link-color: #169EBE;
+$error-color: #AC162C;
+
+$theme-dark-blue: #325d79;
+$theme-light-blue: #9bd7d1;
+$theme-dark-orange: #f26627;
+$theme-light-orange: #f9a26c;
+$theme-dark-gray: #b0b0b0;
+$theme-medium-gray: #d3d3d3;
+$theme-light-gray: #efeeee;
+
+/*
+ *	Maps
+ */
+
+$breakpoints: (
+	mobile-l: 576px,
+	tablet: 768px,
+	desktop: 992px,
+	desktop-l: 1200px
+);
+
+/*
+ *  Custom variables
+ */
+
+$navbar-height: 54px;
+$footer-height: 5rem;
+$main-content-height: calc(100vh - #{$navbar-height} - #{$footer-height});

@@ -1,39 +1,38 @@
 <div class="row record headings" *ngIf="data">
-    <div class="col-3 d-none d-lg-flex">Time</div>
-    <div class="col-3 d-none d-lg-flex">Weather</div>
-    <div class="col-3 d-none d-lg-flex">Temperature</div>
-    <div class="col-3 d-none d-lg-flex">Wind</div>
-    <div class="col d-flex d-lg-none justify-content-center">Forecast Data</div>
+    <div class="col-3 d-none d-md-flex">Time</div>
+    <div class="col-3 d-none d-md-flex">Weather</div>
+    <div class="col-3 d-none d-md-flex">Temperature</div>
+    <div class="col-3 d-none d-md-flex">Wind</div>
+    <div class="col d-flex d-md-none justify-content-center">Forecast Data</div>
 </div>
 <div *ngFor="let record of data; let i=index">
     <div *ngIf="i < limit" class="row align-items-center record">
-        <div class="col-6 col-lg-3 align-items-center">
-            <small class="d-flex d-lg-none font-weight-bold">Time</small>
+        <div class="col-6 col-md-3 align-items-center">
+            <small class="d-flex d-md-none font-weight-bold">Time</small>
             <span class="d-flex">
                 {{ transformDate(record.dt_txt) | date : 'MMM d y h a' }}
             </span>
         </div>
-        <div class="col-6 col-lg-3 align-items-center">
-            <small class="d-flex d-lg-none font-weight-bold">Weather</small>
+        <div class="col-6 col-md-3 align-items-center">
+            <small class="d-flex d-md-none font-weight-bold">Weather</small>
             <span class="d-flex text-capitalize">
                 {{ record.weather[0].description }}
             </span>
         </div>
-        <div class="col-6 col-lg-3 align-items-center">
-            <small class="d-flex d-lg-none font-weight-bold">Temperature</small>
+        <div class="col-6 col-md-3 align-items-center">
+            <small class="d-flex d-md-none font-weight-bold">Temperature</small>
             <span class="d-flex">
                 {{ record.main.temp | temperature : units }}
             </span>
         </div>
-        <div class="col-6 col-lg-3 align-items-center">
-            <small class="d-flex d-lg-none font-weight-bold">Wind</small>
-            <span class="d-flex">
+        <div class="col-6 col-md-3 align-items-center">
+            <small class="d-flex d-md-none font-weight-bold">Wind</small>
+            <span class="mr-2">
                 {{ record.wind.speed | speed : units }}
-                <div class="d-inline-flex wind-direction ml-3">
-                    <i class="fas fa-arrow-up"
-                        [ngStyle]="{'transform': 'rotate(' + record.wind.deg + 'deg)'}"></i>
-                </div>
             </span>
+            <img class="d-inline-flex wind-direction"
+                [src]="basePath + 'assets/images/dark-gray-up-arrow.svg'" alt=""
+                [ngStyle]="{'transform': 'rotate(' + record.wind.deg + 'deg)'}">
         </div>
     </div>
 </div>

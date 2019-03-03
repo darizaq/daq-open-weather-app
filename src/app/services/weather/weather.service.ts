@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { AppConstants } from '../../app.constants';
@@ -11,8 +11,10 @@ export class WeatherService {
 
     private units;
     unitsSubject;
+    currentCity;
 
     constructor(private httpClient: HttpClient) {
+        this.currentCity = new Subject<{city: string, country: string}>();
         this.unitsSubject = new BehaviorSubject<string>(AppConstants.UNIT_SYSTEMS.METRIC);
         this.unitsSubject.subscribe(
             value => {

@@ -14,7 +14,11 @@ export class SpeedPipe implements PipeTransform {
 
     };
 
-    transform(value: number, units: string): any {
-        return `${!isNaN(value) && value !== null ? value : ''} ${this.scale[units]}`;
+    transform(value: number, units: string, round: boolean): any {
+		if (!isNaN(value) && value !== null) {
+    		return round ? `${Math.round(value)} ${this.scale[units]}` : `${value} ${this.scale[units]}`;
+    	}
+    	
+        return `${this.scale[units]}`;
     }
 }

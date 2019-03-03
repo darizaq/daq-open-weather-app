@@ -1,32 +1,36 @@
-<h2 *ngIf="forecastData">{{ forecastData.city?.name }} - {{ forecastData.city?.country }}</h2>
-
-<div *ngIf="forecastData">
-    <label class="mr-4">Limit of records</label>
-    <div class="form-group d-inline-flex">
-        <select [(ngModel)]="forecastLimit" class="form-control">
-            <option value="" disabled>Select value</option>
-            <option  *ngFor="let item of forecastLimitSelector" [value]="item">{{ item }}</option>
-        </select>
+<div class="d-flex">
+    <h2 class="d-none d-lg-block color-dark-blue"
+        *ngIf="forecastData">
+        {{ forecastData.city?.name }} - {{ forecastData.city?.country }}
+    </h2>
+    <div *ngIf="forecastData" class="ml-0 ml-lg-auto">
+        <label class="mr-4 d-inline-flex">Limit of records</label>
+        <div class="form-group d-inline-flex">
+            <select [(ngModel)]="forecastLimit" class="form-control">
+                <option value="" disabled>Select value</option>
+                <option *ngFor="let item of forecastLimitSelector" [value]="item">{{ item }}</option>
+            </select>
+        </div>
     </div>
 </div>
 
-<div class="row justify-content-sm-center">
+<div class="row m-0 justify-content-center">
     <app-city-forecast-chart
-        class="col-12 col-sm-10 col-xl-5 mb-4"
+        class="col-12 col-lg-10 col-xl-8 mb-4 px-0"
         [data]="forecastData?.list"
         [limit]="forecastLimit"
         [units]="units">
     </app-city-forecast-chart>
 
     <app-city-forecast
-        class="col-12 col-sm-10 col-xl-7"
+        class="col-12 col-lg-10 col-xl-8"
         [data]="forecastData?.list"
         [limit]="forecastLimit"
         [units]="units">
     </app-city-forecast>
 </div>
 
-<div class="spinner" *ngIf="!forecastData && !error">
+<div class="spinner" *ngIf="isLoading()">
     <span>Loading . . .</span>
 </div>
 <app-error [error]="error"></app-error>

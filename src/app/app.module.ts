@@ -5,10 +5,10 @@ import { FormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 
 import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module';
 import { WeatherListComponent } from './features/weather-list/weather-list.component';
 import { ForecastComponent } from './features/forecast/forecast.component';
 import { WeatherService } from './services/weather/weather.service';
+import { EnvironmentService } from './services/environment/environment.service';
 import { CityWeatherComponent } from './components/city-weather/city-weather.component';
 import { CityForecastComponent } from './components/city-forecast/city-forecast.component';
 import { CityForecastChartComponent } from './components/city-forecast-chart/city-forecast-chart.component';
@@ -17,6 +17,7 @@ import { SpeedPipe } from './pipes/speed/speed.pipe';
 import { NotFoundComponent } from './features/not-found/not-found.component';
 import { ErrorComponent } from './components/error/error.component';
 import { SytemTogglerComponent } from './components/sytem-toggler/sytem-toggler.component';
+import { CitySelectorComponent } from './components/city-selector/city-selector.component';
 
 @NgModule({
   declarations: [
@@ -30,15 +31,15 @@ import { SytemTogglerComponent } from './components/sytem-toggler/sytem-toggler.
     SpeedPipe,
     NotFoundComponent,
     ErrorComponent,
-    SytemTogglerComponent
+    SytemTogglerComponent,
+    CitySelectorComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     HttpClientModule,
     FormsModule
   ],
-  providers: [DatePipe, WeatherService, TemperaturePipe],
+  providers: [TemperaturePipe, DatePipe, WeatherService, EnvironmentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
