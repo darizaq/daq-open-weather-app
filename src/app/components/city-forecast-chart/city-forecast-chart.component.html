@@ -1,1 +1,1 @@
-<canvas [ngClass]="{'d-none': !data || !forecastChart}">{{ forecastChart }}</canvas>
+<canvas [ngClass]="{'d-none': !data || !forecastChart || limit < 2}">{{ forecastChart }}</canvas>

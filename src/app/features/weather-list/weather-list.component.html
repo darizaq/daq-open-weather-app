@@ -1,6 +1,12 @@
+<div class="d-flex align-items-center justify-content-center justify-content-lg-start">
+    <app-city-add (onWeatherData)="addCityData($event)"></app-city-add>
+    <h5 *ngIf="weatherListData && !weatherListData.length" class="ml-lg-3">
+        No city added yet
+    </h5>
+</div>
 <app-city-selector
-    *ngIf="weatherListData"
-    [cityList]="weatherListData.list"
+    *ngIf="weatherListData?.length"
+    [cityList]="weatherListData"
     [units]="units">
 </app-city-selector>
 <div class="spinner" *ngIf="!weatherListData && !error">

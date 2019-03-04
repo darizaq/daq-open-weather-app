@@ -24,7 +24,7 @@ export class WeatherListComponent implements OnInit, OnDestroy {
                 this.error = null;
                 this.weatherService.getInitialData().subscribe(
                     data => {
-                        this.weatherListData = data;
+                        this.weatherListData = data['list'];
                     },
                     data => {
                         this.error = {
@@ -34,6 +34,14 @@ export class WeatherListComponent implements OnInit, OnDestroy {
                 );
             }
         );
+    }
+
+    addCityData(data) {
+        if (Array.isArray(this.weatherListData)) {
+            this.weatherListData.unshift(data);
+        } else {
+            this.weatherListData = [data];
+        }
     }
 
     ngOnDestroy() {

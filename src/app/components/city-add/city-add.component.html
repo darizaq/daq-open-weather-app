@@ -1,0 +1,42 @@
+<button class="button-add m-3 m-lg-0 mb-lg-3"
+    type="button"
+    aria-label="add city"
+    (click)="toggleModal()">
+    <span>+</span>
+</button>
+
+<div class="modal fade d-block"
+    [ngClass]="{'show': modalOpen}"
+    tabindex="-1"
+    role="dialog"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="form-group">
+                    <input type="text"
+                        placeholder="Type city name"
+                        class="form-control"
+                        [(ngModel)]="cityName"
+                        (keyup.enter)="addCity()"
+                        #cityInput>
+                    <small *ngIf="alreadyExist">City already exists</small>
+                    <small *ngIf="error">{{ error }}</small>
+                </div>
+            </div>
+            <div class="modal-footer pt-0">
+                <button type="button"
+                    class="btn btn-secondary-action"
+                    (click)="toggleModal()">
+                    Cancel
+                </button>
+                <button type="button"
+                    class="btn btn-primary-action"
+                    (click)="addCity()"
+                    [disabled]="!cityName || alreadyExist">
+                    Accept
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

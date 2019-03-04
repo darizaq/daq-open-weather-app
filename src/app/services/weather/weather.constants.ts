@@ -4,23 +4,23 @@ export class WeatherConstants {
     static UNITS = 'metric';
     static INITIAL_CITES = [
         {
-            id: '2759794',
+            id: 2759794,
             name: 'Amsterdam'
         },
         {
-            id: '2643743',
+            id: 2643743,
             name: 'London'
         },
         {
-            id: '3117735',
+            id: 3117735,
             name: 'Madrid'
         },
         {
-            id: '2950159',
+            id: 2950159,
             name: 'Berlin'
         },
         {
-            id: '2988507',
+            id: 2988507,
             name: 'Paris'
         }
     ];

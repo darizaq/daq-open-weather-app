@@ -23,7 +23,7 @@ export class CityForecastChartComponent implements OnInit, OnChanges {
             labels: [],
             datasets: [{
                 data: [],
-                borderColor: '#f9a26c',
+                borderColor: '#f26627',
                 fill: false
             }]
         },
@@ -38,15 +38,22 @@ export class CityForecastChartComponent implements OnInit, OnChanges {
             },
             scales: {
                 xAxes: [{
-                    display: true
+                    display: true,
+                    ticks: {
+                        fontColor: '#325d79'
+                    }
                 }],
                 yAxes: [{
                     scaleLabel: {
                         display: true,
                         labelString: '',
-                        fontSize: 20
+                        fontSize: 20,
+                        fontColor: '#325d79'
                     },
-                    display: true
+                    display: true,
+                    ticks: {
+                        fontColor: '#325d79'
+                    }
                 }],
             }
         }

@@ -9,3 +9,8 @@
 		@content;
 	}
 }
+
+@mixin square-element($size) {
+    width: $size;
+    height: $size;
+}

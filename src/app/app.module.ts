@@ -17,6 +17,7 @@ import { SpeedPipe } from './pipes/speed/speed.pipe';
 import { ErrorComponent } from './components/error/error.component';
 import { SytemTogglerComponent } from './components/sytem-toggler/sytem-toggler.component';
 import { CitySelectorComponent } from './components/city-selector/city-selector.component';
+import { CityAddComponent } from './components/city-add/city-add.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { CitySelectorComponent } from './components/city-selector/city-selector.
     SpeedPipe,
     ErrorComponent,
     SytemTogglerComponent,
-    CitySelectorComponent
+    CitySelectorComponent,
+    CityAddComponent
   ],
   imports: [
     BrowserModule,

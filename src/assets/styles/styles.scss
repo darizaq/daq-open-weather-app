@@ -64,3 +64,25 @@ input::-webkit-inner-spin-button {
 .color-light-gray {
     color: $theme-light-gray;
 }
+
+button {
+    &.btn-primary-action {
+        background-color: rgba($theme-dark-blue, .9);
+        color: $white;
+
+        &:hover {
+            background-color: $theme-dark-blue;
+            color: $white;
+        }
+    }
+
+    &.btn-secondary-action {
+        background-color: $white;
+        color: $theme-dark-blue;
+        border-color: $theme-dark-blue;
+    }
+
+    &[disabled] {
+        cursor: not-allowed;
+    }
+}

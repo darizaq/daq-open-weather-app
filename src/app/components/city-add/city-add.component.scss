@@ -1,0 +1,63 @@
+@import 'commons';
+
+.button-add {
+    @include square-element(50px);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 4;
+    font-family: 'Arial';
+    border: none;
+    background-color: $theme-light-orange;
+    border-radius: 50%;
+    color: $white;
+    outline: none;
+    box-shadow: 5px 5px 20px 0 rgba($black,.5);
+
+    span {
+        display: block;
+        font-size: 2rem;
+        transition: transform 0.3s;
+    }
+
+    &:hover {
+        span {
+            transform: rotate(90deg);
+        }
+    }
+}
+
+.modal {
+    background-color: rgba($black, 0.3);
+
+    &.fade {
+        &:not(.show) {
+            z-index: -1;
+        }
+    }
+
+    .modal-body {
+        .form-group {
+            position: relative;
+            margin-bottom: 0;
+            padding-bottom: 1.5rem;
+
+            small {
+                position: absolute;
+                bottom: 0;
+                color: $error-color;
+            }
+        }
+    }
+
+    .modal-footer {
+        border: none;
+    }
+}
+
+@include from-screen-width(desktop) {
+    .button-add {
+        position: relative;
+        bottom: 0;
+    }
+}

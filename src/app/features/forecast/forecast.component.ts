@@ -11,7 +11,6 @@ import { WeatherService } from '../../services/weather/weather.service';
 export class ForecastComponent implements OnInit, OnDestroy {
 
     forecastLimit = 8;
-    editMode = false;
     forecastData;
     error;
     city;
@@ -53,7 +52,7 @@ export class ForecastComponent implements OnInit, OnDestroy {
             .subscribe(
                 data => {
                     this.forecastData = data;
-                    this.initLimitSelector(data.list && data.list.length);
+                    this.initLimitSelector(data['list'] && data['list'].length);
                     this.error = null;
                 },
                 data => {
@@ -67,10 +66,6 @@ export class ForecastComponent implements OnInit, OnDestroy {
 
     initLimitSelector(listLength: number) {
         this.forecastLimitSelector = new Array(listLength).fill(null).map((item, index) => index + 1);
-    }
-
-    toggleEditMode() {
-        this.editMode = !this.editMode;
     }
 
     isLoading() {

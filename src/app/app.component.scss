@@ -41,7 +41,7 @@
 
 @include from-screen-width(desktop) {
     .weather-list {
-		background-color: $theme-light-blue;
+		background-image: linear-gradient(150deg, $theme-light-blue 40%, $theme-dark-blue);
 		min-height: $main-content-height;
 
 	}
